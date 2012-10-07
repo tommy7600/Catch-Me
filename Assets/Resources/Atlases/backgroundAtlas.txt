@@ -1,0 +1,20 @@
+{"frames": {
+
+"whiteSquare.png":
+{
+	"frame": {"x":3,"y":3,"w":10,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
+	"sourceSize": {"w":10,"h":10}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "backgroundAtlas.png",
+	"format": "RGBA8888",
+	"size": {"w":16,"h":16},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ee44187ab360b20e522502848333675e$"
+}
+}
