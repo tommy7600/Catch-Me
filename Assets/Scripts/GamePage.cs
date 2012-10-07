@@ -190,6 +190,7 @@ public class GamePage : FContainer, FMultiTouchableInterface {
 
 	void HandleAgainSignalRelease (FButton obj)
 	{
+		again.SignalRelease -= HandleAgainSignalRelease;
 		again.RemoveFromContainer();
 		Main.SwitchToPage(Main.PageType.Game);
 	}
