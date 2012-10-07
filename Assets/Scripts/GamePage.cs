@@ -7,7 +7,9 @@ public class GamePage : FContainer, FMultiTouchableInterface {
 	private int maxThingies = 2;
 	private FContainer thingyContainer = new FContainer();
 	private int maxGoodThingies = 1;
+	private FButton again;
 	private int goodThingiesCount = 0;
+	private bool gameOver = false;
 	private HUDLayer hudLayer = new HUDLayer();
 	private Rect playAreaRect = new Rect(0.0f, Futile.screen.height - 30, Futile.screen.width, Futile.screen.height - 30);	
 	static float timer = 0;
@@ -74,19 +76,21 @@ public class GamePage : FContainer, FMultiTouchableInterface {
 	}
 	
 	private void HandleUpdate () {
-		UpdateThingyPositions();
-		
-		timer += Time.deltaTime;
-		
-		if (thingies.Count < maxThingies && timer >= RXRandom.Range(0.1f, 0.5f)) {
-			timer = 0;
-			AddNewThingy(true);
-			MoveGoodThingiesToBottom();
+		if (!gameOver) {
+			UpdateThingyPositions();
+			
+			timer += Time.deltaTime;
+			
+			if (thingies.Count < maxThingies && timer >= RXRandom.Range(0.1f, 0.5f)) {
+				timer = 0;
+				AddNewThingy(true);
+				MoveGoodThingiesToBottom();
+			}
 		}
 	}
 	
 	private void UpdateThingyPositions() {
-		foreach (Thingy thingy in thingies) {			
+		foreach (Thingy thingy in thingies) {						
 			if (thingy.isGood) {
 				int maxVelocity = 250;
 				
@@ -156,11 +160,37 @@ public class GamePage : FContainer, FMultiTouchableInterface {
 			goodThingiesCount--;
 		}
 		else {
+			gameOver = true;
 			FSoundManager.PlaySound("lose");
-			Main.SwitchToPage(Main.PageType.Title);
+
+			FLabel score = new FLabel("BlairMdITC", hudLayer.score.ToString());
+			score.x = Futile.screen.halfWidth;
+			score.y = Futile.screen.halfHeight + 75;
+			score.scale = 0f;
+			score.color = Color.black;
+			Go.to(score, 0.5f, new TweenConfig().addTweenProperty(new FloatTweenProperty("scale", 1.0f, false)).setEaseType(EaseType.BackInOut));
+			
+			AddChild(score);
+			
+			again = new FButton("button.png", "buttonOver.png", "spawn");
+			again.SignalRelease += HandleAgainSignalRelease;
+			again.AddLabel("BlairMdITC", "Play Again", Color.black);
+			again.label.scale = 0.3f;
+			again.scale = 0f;
+			again.x = Futile.screen.halfWidth;
+			again.y = Futile.screen.halfHeight;
+			Go.to(again, 0.5f, new TweenConfig().addTweenProperty(new FloatTweenProperty("scale", 1.0f, false)).setEaseType(EaseType.BackInOut));
+			
+			AddChild(again);
 		}
 		
 		thingies.Remove(thingy);
 		thingy.Destroy();
+	}
+
+	void HandleAgainSignalRelease (FButton obj)
+	{
+		again.RemoveFromContainer();
+		Main.SwitchToPage(Main.PageType.Game);
 	}
 }

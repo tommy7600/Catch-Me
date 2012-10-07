@@ -8,61 +8,37 @@
 	"spriteSourceSize": {"x":2,"y":1,"w":500,"h":204},
 	"sourceSize": {"w":512,"h":256}
 },
-"background.png":
+"button.png":
 {
-	"frame": {"x":3,"y":211,"w":480,"h":320},
-	"rotated": false,
+	"frame": {"x":57,"y":211,"w":150,"h":50},
+	"rotated": true,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":320},
-	"sourceSize": {"w":480,"h":320}
+	"spriteSourceSize": {"x":0,"y":0,"w":150,"h":50},
+	"sourceSize": {"w":150,"h":50}
 },
-"brokenHeartLeft.png":
+"buttonOver.png":
 {
-	"frame": {"x":3,"y":639,"w":55,"h":90},
-	"rotated": false,
+	"frame": {"x":3,"y":211,"w":150,"h":50},
+	"rotated": true,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":55,"h":90},
-	"sourceSize": {"w":55,"h":90}
-},
-"brokenHeartRight.png":
-{
-	"frame": {"x":62,"y":639,"w":57,"h":75},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":57,"h":75},
-	"sourceSize": {"w":57,"h":75}
-},
-"heart.png":
-{
-	"frame": {"x":3,"y":535,"w":100,"h":100},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":100},
-	"sourceSize": {"w":100,"h":100}
+	"spriteSourceSize": {"x":0,"y":0,"w":150,"h":50},
+	"sourceSize": {"w":150,"h":50}
 },
 "me.png":
 {
-	"frame": {"x":3,"y":733,"w":65,"h":85},
+	"frame": {"x":3,"y":365,"w":65,"h":85},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":3,"y":1,"w":65,"h":85},
 	"sourceSize": {"w":69,"h":89}
-},
-"stick.png":
-{
-	"frame": {"x":487,"y":211,"w":13,"h":268},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":268},
-	"sourceSize": {"w":13,"h":268}
 }},
 "meta": {
 	"app": "http://www.texturepacker.com",
 	"version": "1.0",
 	"image": "mainAtlas.png",
 	"format": "RGBA8888",
-	"size": {"w":512,"h":1024},
+	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:cffe7b7c71322cdeb09cf8480c4c4181$"
+	"smartupdate": "$TexturePacker:SmartUpdate:443fbad7db14aabbf6aa4ff778d48d20$"
 }
 }

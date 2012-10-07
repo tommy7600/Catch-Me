@@ -21,7 +21,16 @@ public class TitlePage : FContainer, FMultiTouchableInterface {
 		title.y = Futile.screen.halfHeight;
 		AddChild(title);
 		
-		Go.to(title, 1.0f, new TweenConfig().addTweenProperty(new FloatTweenProperty("scale", 1.0f, false)).setEaseType(EaseType.BackInOut).onComplete(HandleTitleDoneInflating));
+		Go.to(title, 0.5f, new TweenConfig().addTweenProperty(new FloatTweenProperty("scale", 1.0f, false)).setEaseType(EaseType.BackInOut).onComplete(HandleTitleDoneInflating));
+		
+		FLabel twitter = new FLabel("BlairMdITC", "@wtrebella");
+		twitter.color = Color.black;
+		twitter.scale = 0f;
+		twitter.x = Futile.screen.halfWidth;
+		twitter.y = Futile.screen.halfHeight - 50;
+		AddChild(twitter);
+		
+		Go.to(twitter, 0.5f, new TweenConfig().addTweenProperty(new FloatTweenProperty("scale", 0.5f, false)).setDelay(0.5f).setEaseType(EaseType.BackInOut));
 	}
 	
 	override public void HandleAddedToStage() {

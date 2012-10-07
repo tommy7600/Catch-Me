@@ -6,6 +6,7 @@ public class Thingy : FContainer {
 	public float rotationSpeed = Random.Range(50, 500);
 	public float xVelocity = Random.Range(50, 200);
 	public float yVelocity = Random.Range(50, 200);
+	private bool isPaused = false;
 	private bool isGood_ = true;
 
 	public Thingy() : this(true) {
@@ -50,6 +51,14 @@ public class Thingy : FContainer {
 		rotation = Random.Range(0, 360);
 	}
 	
+	public void Pause() {
+		isPaused = true;	
+	}
+	
+	public void Resume() {
+		isPaused = false;
+	}
+	
 	override public void HandleAddedToStage() {
 		Futile.instance.SignalUpdate += HandleUpdate;
 		base.HandleAddedToStage();
@@ -72,7 +81,7 @@ public class Thingy : FContainer {
 	}
 
 	public void HandleUpdate() {
-		rotation += rotationSpeed * Time.deltaTime;
+		if (!isPaused) rotation += rotationSpeed * Time.deltaTime;
 	}
 	
 	public void Destroy() {
